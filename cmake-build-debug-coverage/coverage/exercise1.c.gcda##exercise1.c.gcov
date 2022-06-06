@@ -1,0 +1,222 @@
+        -:    0:Source:/home/bella/CLionProjects/ProgC/exercise1.c
+        -:    0:Graph:/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/ProgC.dir/exercise1.c.gcno
+        -:    0:Data:/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/ProgC.dir/exercise1.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by 0x1nbetw33n on 06/04/2022.
+        -:    3://
+        -:    4:
+        -:    5:#include <stdio.h>
+        -:    6:#include <stdbool.h>
+        -:    7:#include <math.h>
+        -:    8:#include "exercise1.h"
+        -:    9:
+        -:   10:
+function sum called 0 returned 0% blocks executed 0%
+    #####:   11:double sum(double term1, double term2){ return term1 + term2; }
+    %%%%%:   11-block  0
+        -:   12:
+function subtraction called 0 returned 0% blocks executed 0%
+    #####:   13:double subtraction(double term1, double term2){ return term1 - term2; }
+    %%%%%:   13-block  0
+        -:   14:
+function multiplication called 0 returned 0% blocks executed 0%
+    #####:   15:double multiplication(double factor1, double factor2){ return factor1 * factor2; }
+    %%%%%:   15-block  0
+        -:   16:
+function division called 0 returned 0% blocks executed 0%
+    #####:   17:double division(double dividend, double divisor){ return dividend / divisor;}
+    %%%%%:   17-block  0
+        -:   18:
+function rounding called 0 returned 0% blocks executed 0%
+    #####:   19:float rounding(float no){return roundf(no); }
+    %%%%%:   19-block  0
+        -:   20:
+function rounding2 called 1 returned 100% blocks executed 80%
+       1*:   21:extern float rounding2(float no){return (no - (int) no) > .5f ? (int) no + 1 : (int) no;}
+        1:   21-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   21-block  1
+        1:   21-block  2
+        1:   21-block  3
+        -:   22:
+function abs called 0 returned 0% blocks executed 0%
+    #####:   23:int abs(int no){return no >= 0 ? no : -no;}
+    %%%%%:   23-block  0
+        -:   24:
+function maxOf2Nos called 0 returned 0% blocks executed 0%
+    #####:   25:int maxOf2Nos(int no1, int no2){return no1 > no2 ? no1 : no2;}
+    %%%%%:   25-block  0
+        -:   26:
+function max called 0 returned 0% blocks executed 0%
+    #####:   27:double max(double no1, double no2, double no3){
+        -:   28:    //drawing a tree helps in understanding the expression
+        -:   29:    return no1 > no2 ?
+    #####:   30:           (no1 > no3 ? no1 : no3) : (no2 > no3 ? no2 : no3);
+    %%%%%:   30-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   30-block  1
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   30-block  2
+    %%%%%:   30-block  3
+    %%%%%:   30-block  4
+    %%%%%:   30-block  5
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   30-block  6
+    %%%%%:   30-block  7
+    %%%%%:   30-block  8
+    %%%%%:   30-block  9
+        -:   31:}
+        -:   32:
+function minOf2Nos called 0 returned 0% blocks executed 0%
+    #####:   33:int minOf2Nos(int no1, int no2){return no1 < no2 ? no1 : no2;}
+    %%%%%:   33-block  0
+        -:   34:
+function min called 0 returned 0% blocks executed 0%
+    #####:   35:double min(double no1, double no2, double no3){
+        -:   36:    return no1 < no2 ?
+    #####:   37:           (no1 < no3 ? no1 : no3) : (no2 < no3 ? no2 : no3);
+    %%%%%:   37-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   37-block  1
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   37-block  2
+    %%%%%:   37-block  3
+    %%%%%:   37-block  4
+    %%%%%:   37-block  5
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   37-block  6
+    %%%%%:   37-block  7
+    %%%%%:   37-block  8
+    %%%%%:   37-block  9
+        -:   38:}
+        -:   39:
+function ggT called 0 returned 0% blocks executed 0%
+    #####:   40:int ggT(int no1, int no2) {
+    #####:   41:    int max = maxOf2Nos(no1, no2);
+    %%%%%:   41-block  0
+call    0 never executed
+    #####:   42:    int min = minOf2Nos(no1, no2);
+call    0 never executed
+    #####:   43:    int remainder = 0;
+    #####:   44:    while (min > 0){
+    %%%%%:   44-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   45:        remainder = maxOf2Nos(min, max) % minOf2Nos(min, max);
+    %%%%%:   45-block  0
+call    0 never executed
+call    1 never executed
+    #####:   46:        max = minOf2Nos(min, max);
+call    0 never executed
+    #####:   47:        min = remainder;
+        -:   48:    }
+    #####:   49:    return max;
+    %%%%%:   49-block  0
+        -:   50:}
+        -:   51:
+function isPrim called 0 returned 0% blocks executed 0%
+    #####:   52:bool isPrim(int possiblePrim){
+    #####:   53:    for (int i = 2; i < possiblePrim; i++) {
+    %%%%%:   53-block  0
+    %%%%%:   53-block  1
+    %%%%%:   53-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   54:        if(ggT(possiblePrim, i) != 1){
+    %%%%%:   54-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   55:            return false;
+    %%%%%:   55-block  0
+        -:   56:        }
+        -:   57:    }
+    #####:   58:    return true;
+    %%%%%:   58-block  0
+        -:   59:}
+        -:   60:
+function arePrimTwins called 0 returned 0% blocks executed 0%
+    #####:   61:bool arePrimTwins(int prim1, int prim2){ return abs(prim1 - prim2) == 2; }
+    %%%%%:   61-block  0
+        -:   62:
+function printPrimTwins called 0 returned 0% blocks executed 0%
+    #####:   63: int printPrimTwins(int min, int max){
+    #####:   64:    int * prims[2] = {0, 0};
+    #####:   65:    for(int counter = min, arrayPosition = 0; counter < max; counter++){
+    %%%%%:   65-block  0
+    %%%%%:   65-block  1
+    %%%%%:   65-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   66:        if(isPrim(counter)){
+    %%%%%:   66-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   67:            //if the number is a prim no. -> assign the number to the array at current position of arrayPosition
+    #####:   68:            prims[arrayPosition] = counter;
+        -:   69:            //if index points to array's first element -> increment
+    #####:   70:            arrayPosition = arrayPosition < 1 ? ++arrayPosition : arrayPosition;
+    %%%%%:   70-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   70-block  1
+    %%%%%:   70-block  2
+    #####:   71:            if(arePrimTwins(prims[0], prims[1])){
+    %%%%%:   71-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   72:                printf("%d | %d\n", prims[0], prims[1]);
+    %%%%%:   72-block  0
+call    0 never executed
+        -:   73:                //assigning arrayPosition again to array's first element to start looking for the next twins
+    #####:   74:                arrayPosition = 0;
+        -:   75:            }
+        -:   76:        }
+        -:   77:    }
+    #####:   78:    return 0;
+    %%%%%:   78-block  0
+        -:   79:}
+        -:   80:
+        -:   81:
+        -:   82:/*int main(){
+        -:   83:    printf("\nhello human:) u are awesome!\n");
+        -:   84:    //printf("%f\n", sum(-1.5, 4.5));
+        -:   85:    //printf("%f\n", subtraction(54., -99.));
+        -:   86:    //printf("%f\n", multiplication(3., 25.));
+        -:   87:    //printf("%f\n", division(3., 4.));
+        -:   88:    //printf("%f\n", rounding(5.545f));
+        -:   89:    //printf("%f\n", rounding2(5.347f));
+        -:   90:    //printf("%f\n", rounding2(5.647f));
+        -:   91:    //printf("%f\n", rounding2(3835.647f));
+        -:   92:    //printf("%f\n", max(233., 111., 66.));
+        -:   93:    //printf("%f\n", min(11., 20., 3.));
+        -:   94:    //printf("%d\n", minOf2Nos(34, 85));
+        -:   95:    //printf("%d\n", maxOf2Nos(34, 85));
+        -:   96:    //printf("%d\n", isPrim(31)); //-> TRUE
+        -:   97:    //printf("%d\n", isPrim(1)); //-> FALSE
+        -:   98:    //printf("%d\n", isPrim(29)); //-> TRUE
+        -:   99:    //printf("%d\n", isPrim(14)); //-> FALSE
+        -:  100:    //printf("%d\n", isPrim(37)); //-> TRUE
+        -:  101:   // printf("%d\n", isPrim(60)); //-> FALSE
+        -:  102:    //printf("%d\n", ggT(12, 27));
+        -:  103:    //printf("%d\n", ggT(34, 85));
+        -:  104:    //printf("%d\n", ggT(31, 2));
+        -:  105:    //printf("%d\n", arePrimTwins(3,5)); //-> TRUE
+        -:  106:    //printf("%d\n", arePrimTwins(71,73)); //-> TRUE
+        -:  107:    //printf("%d\n", arePrimTwins(41,43)); //-> TRUE
+        -:  108:    //printf("%d\n", arePrimTwins(101,150)); //-> FALSE
+        -:  109:    //printf("%d\n", arePrimTwins(3,7)); //-> FALSE
+        -:  110:    //printf(printPrimTwins(2, 500));
+        -:  111:    return 0;
+        -:  112:}
+        -:  113: */

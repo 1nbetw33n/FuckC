@@ -1,0 +1,21 @@
+        -:    0:Source:/home/bella/CLionProjects/ProgC/mathemat.c
+        -:    0:Graph:/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/ProgC.dir/mathemat.c.gcno
+        -:    0:Data:/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/ProgC.dir/mathemat.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by 0x1nbetw33n on 25/04/22.
+        -:    3://
+        -:    4:
+        -:    5:static int callCounter;
+        -:    6:
+function counter called 2 returned 100% blocks executed 100%
+        2:    7:void counter(void){
+        2:    8:    callCounter++;
+        2:    9:}
+        -:   10:
+function showCounter called 3 returned 100% blocks executed 100%
+        3:   11:int showCounter(){
+        3:   12:    return callCounter;
+        3:   12-block  0
+        -:   13:}
+        -:   14:

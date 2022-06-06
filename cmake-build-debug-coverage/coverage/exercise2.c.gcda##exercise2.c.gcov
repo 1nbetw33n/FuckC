@@ -1,0 +1,164 @@
+        -:    0:Source:/home/bella/CLionProjects/ProgC/exercise2.c
+        -:    0:Graph:/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/ProgC.dir/exercise2.c.gcno
+        -:    0:Data:/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/ProgC.dir/exercise2.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by 0x1nbetw33n on 25/04/22.
+        -:    3://
+        -:    4:
+        -:    5:#include <stdio.h>
+        -:    6:#include <math.h>
+        -:    7:#include "exercise1.h"
+        -:    8:#include "mathemat.h"
+        -:    9:
+        -:   10:typedef  struct Fraction{
+        -:   11:    int numerator;
+        -:   12:    int denominator;
+        -:   13:}Fraction;
+        -:   14:
+function addBruch called 0 returned 0% blocks executed 0%
+    #####:   15:Fraction addBruch(Fraction fraction1, Fraction fraction2){
+        -:   16:    Fraction result;
+        -:   17:    int tmpResult;
+    #####:   18:    int tmp1 = fraction1.denominator;
+    #####:   19:    int tmp2 = fraction2.denominator;
+    #####:   20:    if(abs(fraction1.denominator - fraction2.denominator) >= .0000001){
+    %%%%%:   20-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   21:        fraction1.numerator *= tmp2;
+    #####:   22:        fraction1.denominator *= tmp2;
+    #####:   23:        fraction2.numerator *= tmp1;
+    #####:   24:        fraction2.denominator *= tmp1;
+    %%%%%:   24-block  0
+        -:   25:    }
+    #####:   26:    result.numerator = fraction1.numerator + fraction2.numerator;
+    #####:   27:    result.denominator = fraction1.denominator;
+    #####:   28:    tmpResult = result.numerator;
+    #####:   29:    result.numerator /= ggT(tmpResult, result.denominator);
+    %%%%%:   29-block  0
+call    0 never executed
+    #####:   30:    result.denominator /= ggT(tmpResult, result.denominator);
+call    0 never executed
+    #####:   31:    return result;
+        -:   32:}
+        -:   33:
+function printQuadraticEquation called 0 returned 0% blocks executed 0%
+    #####:   34:int printQuadraticEquation(){
+        -:   35:    int p;
+        -:   36:    int q;
+    #####:   37:    printf("Enter p");
+    %%%%%:   37-block  0
+call    0 never executed
+    #####:   38:    scanf("%d", &p);
+call    0 never executed
+    #####:   39:    printf("Enter q");
+call    0 never executed
+    #####:   40:    scanf("%d", &q);
+call    0 never executed
+    #####:   41:    if(0 > (- (p / 2) + pow((pow((p / 2), 2) - q), .5)), (+ (p / 2) + pow((pow((p / 2), 2) - q), .5))) {
+branch  0 never executed
+branch  1 never executed
+    #####:   42:        return -1;
+    %%%%%:   42-block  0
+        -:   43:    }
+    #####:   44:    printf("%f || %f\n", (- (p / 2) + pow((pow((p / 2), 2) - q), .5)), (+ (p / 2) + pow((pow((p / 2), 2) - q), .5)));
+    %%%%%:   44-block  0
+call    0 never executed
+    #####:   45:    return 0;
+        -:   46:}
+        -:   47:
+function quadrat called 1 returned 100% blocks executed 100%
+        1:   48:float quadrat(float no){
+        1:   49:    counter();
+        1:   49-block  0
+call    0 returned 1
+        1:   50:    return pow(no, 2);
+        -:   51:}
+        -:   52:
+function xMod3 called 1 returned 100% blocks executed 100%
+        1:   53:int xMod3(float no){
+        1:   54:    counter();
+        1:   54-block  0
+call    0 returned 1
+        1:   55:    return ((int) rounding2(no)) % 3;
+call    0 returned 1
+        -:   56:}
+        -:   57:
+        -:   58:
+        -:   59:
+function op called 0 returned 0% blocks executed 0%
+    #####:   60:int op(float x){
+    #####:   61:    printf("%.2f\n", pow(x, 2));
+    %%%%%:   61-block  0
+call    0 never executed
+    #####:   62:    printf("%i\n", ((int) rounding2(x))% 3);
+call    0 never executed
+call    1 never executed
+    #####:   63:    printf("%f\n", pow(x, .5));
+call    0 never executed
+    #####:   64:    printf("%f\n", (5 * x) / (7 * (x - 1.5)));
+call    0 never executed
+    #####:   65:    printf("%0x\n", (((int) rounding2(x)) << 2));
+call    0 never executed
+call    1 never executed
+    #####:   66:    printf("%0x\n", (((int) rounding2(x)) & 0x00F0));
+call    0 never executed
+call    1 never executed
+    #####:   67:    printf("%0f\n", x++);
+call    0 never executed
+    #####:   68:    printf("%0f\n", ++x);
+call    0 never executed
+    #####:   69:}
+        -:   70:
+function main called 1 returned 100% blocks executed 100%
+        1:   71:int main(int argc, char* argv[]){
+        -:   72:    /*
+        -:   73:    printf("%lu\n", sizeof(char));
+        -:   74:    printf("%lu\n", sizeof(int));
+        -:   75:    printf("%lu\n", sizeof(float));
+        -:   76:    printf("%lu\n", sizeof(double));
+        -:   77:    int a = 125,
+        -:   78:    b = -39;
+        -:   79:    printf("%c | %c\n", a, b);
+        -:   80:    printf("%u | %u\n", a, b);
+        -:   81:    printf("%0x | %0x\n", a, b);
+        -:   82:    printf("%d | %i\n", a, b);
+        -:   83:    printf("%.2f | %.2f\n", a, b);
+        -:   84:    printf("%E | %E\n", a, b);
+        -:   85:    printQuadraticEquation();
+        -:   86:    op(7.f);
+        -:   87:    Fraction fraction1;
+        -:   88:    Fraction fraction2;
+        -:   89:    Fraction fraction3;
+        -:   90:    fraction1.numerator = 1;
+        -:   91:    fraction1.denominator = 3;
+        -:   92:    fraction2.numerator = 3;
+        -:   93:    fraction2.denominator = 2;
+        -:   94:    fraction3.numerator = 2;
+        -:   95:    fraction3.denominator = 3;
+        -:   96:    printf("%d\n _ \n %d\n\n", addBruch(fraction1, fraction2).numerator, addBruch(fraction1, fraction2).denominator);
+        -:   97:    printf("%d\n _ \n %d\n\n", addBruch(fraction1, fraction3).numerator, addBruch(fraction1, fraction3).denominator);
+        -:   98:    float a = .1f + .1f + .1f + .1f + .1f + .1f + .1f + .1f + .1f + .1f;
+        -:   99:    float b = 10 * .1f;
+        -:  100:    printf("%.10f\n", a);
+        -:  101:    printf("%.10f\n", b);
+        -:  102:     */
+        1:  103:    printf("counter: %i\n", showCounter());
+        1:  103-block  0
+call    0 returned 1
+call    1 returned 1
+        1:  104:    printf("%f\n", quadrat(4));
+call    0 returned 1
+call    1 returned 1
+        1:  105:    printf("counter: %i\n", showCounter());
+call    0 returned 1
+call    1 returned 1
+        1:  106:    printf("%i\n", xMod3(11));
+call    0 returned 1
+call    1 returned 1
+        1:  107:    printf("counter: %i\n", showCounter());
+call    0 returned 1
+call    1 returned 1
+        -:  108:}
+        -:  109:

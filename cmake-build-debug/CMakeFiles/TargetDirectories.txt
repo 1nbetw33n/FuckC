@@ -1,0 +1,3 @@
+/home/bella/CLionProjects/ProgC/cmake-build-debug/CMakeFiles/ProgC.dir
+/home/bella/CLionProjects/ProgC/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/bella/CLionProjects/ProgC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
