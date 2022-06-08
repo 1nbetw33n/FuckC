@@ -4,49 +4,47 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "ArrayList.h"
 
+/* C IS SO EXTREMELY FUCKED UP */
+static size_t binaryStringWithoutLeadingZerosLength;
 
 int* createArray(){
     const size_t LENGTH = 10;
-    int *genericIntArray = (int*) malloc(LENGTH * sizeof(int));
+    int* genericIntArray = (int*) malloc(LENGTH * sizeof(int));
     for (int i = 0; i <LENGTH; i++) {
         genericIntArray[i] = i + 1;
     }
     return genericIntArray;
 }
 
-char* toBinaryString(int integer){
-    if(integer <= 0){
-        return (char *) -1;
+char* toBinaryString(int no){
+    if(no <= 0){
+        return (char*) -1;
     }
     const size_t LENGTH = 32;
-    char *binaryStringPtr;
-    char binaryString[LENGTH];
-    binaryStringPtr = binaryString;
+    char* binaryString = (char*) malloc((sizeof(char) * LENGTH));;
     int zeroCounter = 0;
     //DECIMAL -> BINARY (LEAST SIGNIFICANT BIT STORED AT LAST INDEX ETC.)
     for (int i = LENGTH - 1; i > 0; i--) {
-        if(!(integer > 0)){
+        if(!(no > 0)){
             //COUNTS LEADING ZEROS
-            zeroCounter = i +1;
+            zeroCounter = i + 1;
             break;
         }
-        binaryString[i] = integer % 2;;
-        integer /= 2;
+        binaryString[i] = no % 2;;
+        no /= 2;
     }
-    char *binaryStringWithoutLeadingZerosPtr;
-    char binaryStringWithoutLeadingZeros[LENGTH - zeroCounter];
-    binaryStringWithoutLeadingZerosPtr = binaryStringWithoutLeadingZeros;
+    binaryStringWithoutLeadingZerosLength = LENGTH - zeroCounter;
+    char* binaryStringWithoutLeadingZeros = (char*) malloc(sizeof(char) * (binaryStringWithoutLeadingZerosLength));
     //REMOVES LEADING ZEROs
-    for (int i = zeroCounter; i < sizeof(binaryStringWithoutLeadingZeros); i++) {
+    for (int i = zeroCounter; i < LENGTH; i++) {
         binaryStringWithoutLeadingZeros [i - zeroCounter] = binaryString[i];
     }
-    return binaryStringWithoutLeadingZerosPtr;
+    return binaryStringWithoutLeadingZeros;
 }
 
-int* multiply(int** A, int** B, int n){
-    int matrixA[n][n];
+/*
+int* multiply(int* A, int* B, int n){
     for (int i = 0; i < sizeof(A); i++) {
         for (int j = 0; j < sizeof(A) ; ++j) {
             A[i][j] += A[i][j] * B[i][j];
@@ -54,27 +52,34 @@ int* multiply(int** A, int** B, int n){
     }
     return A;
 }
-
-int* fillMatrix(int matrix[][3]){
+*/
+int* fillMatrix(size_t size){
     int counter = 0;
-    for (int i = 0; i < sizeof(matrix); i++) {
-        for (int j = 0; j < sizeof(matrix) ; ++j) {
+    int* matrix[size];
+    for (int i = 0; i < size; i++) {
+        matrix[i] = (int*) malloc(size * sizeof(int));
+    }
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size ; j++) {
             matrix[i][j] = ++counter;
         }
     }
+    return matrix;
 }
 
-void printMatrix(int* matrix[]){
-    for (int i = 0; i < sizeof(matrix); i++) {
-        for (int j = 0; j < sizeof(matrix) ; ++j) {
-            int columnIndexCounter = 0;
-            if(columnIndexCounter < sizeof(matrix[0])){
-                printf("%d | ", matrix[i][j]);
-            } else {
-                printf("%d\n", matrix[i][j]);
+int printMatrix(int** matrix, size_t size){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++){
+            if(j < size - 1){
+                if(matrix[i][j] < 10){printf("0%d\t", matrix[i][j]);}
+                else{printf("%d\t", matrix[i][j]);}
+            }else{
+                if(matrix[i][j] < 10){printf("0%d\n", matrix[i][j]);}
+                else{printf("%d\n", matrix[i][j]);}
             }
         }
     }
+    return 0;
 }
 
 int checkIfPalindrome(char* string){
@@ -94,20 +99,35 @@ int testCreateArray(){
 }
 
 int testToBinaryString(){
-    const size_t LENGTH = sizeof(toBinaryString(17));
-    for (int i = 0; i < LENGTH; i++) {
-        printf("%d | ", toBinaryString(17)[i]);
+    int no;
+    printf("Enter decimal number\n");
+    scanf("%d", &no);
+    char* binaryString = toBinaryString(no);
+    printf("| ");
+    for (int i = 0; i < binaryStringWithoutLeadingZerosLength; i++) {
+        printf("%d | ", binaryString[i]);
     }
+    free(binaryString);
     return 0;
 }
 
+int testFillMatrix() {
+size_t size = 4;
+/*
+    printf("Enter matrix' size\n");
+    scanf("%zd", &size);
+    */
+    int* genericMatrix = fillMatrix(size);
+    printMatrix(genericMatrix, size);
+}
+/*
 int testMatrix(){
     int* matrix[3];
     fillMatrix(matrix);
-    printMatrix(matrix);
+    printMatrix(matrix, size);
     return 0;
 }
-
+*/
 int testPalindrome(){
     size_t length;
     char character;
@@ -123,13 +143,13 @@ int testPalindrome(){
     return 0;
 }
 
-/*
+
 int main(){
     //testCreateArray();
-    testToBinaryString();
+    //testToBinaryString();
+    testFillMatrix();
     //testMatrix();
-    //testPalindrome();
+   // testPalindrome();
 }
- */
 
 

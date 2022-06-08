@@ -1,3 +1,3 @@
-/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/ProgC.dir
-/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
-/home/bella/CLionProjects/ProgC/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
+/home/bella/CLionProjects/FuckC/cmake-build-debug-coverage/CMakeFiles/ProgC.dir
+/home/bella/CLionProjects/FuckC/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+/home/bella/CLionProjects/FuckC/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
