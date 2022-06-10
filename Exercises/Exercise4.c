@@ -43,44 +43,60 @@ char* toBinaryString(int no){
     return binaryStringWithoutLeadingZeros;
 }
 
-/*
-int* multiply(int* A, int* B, int n){
-    for (int i = 0; i < sizeof(A); i++) {
-        for (int j = 0; j < sizeof(A) ; ++j) {
-            A[i][j] += A[i][j] * B[i][j];
-        }
+int* fillMatrix(size_t i, size_t j){
+    size_t totalSize = i * j;
+    int* genericMatrix = (int*) malloc(totalSize * sizeof(int));
+    for (int i = 0; i < totalSize; i++) {
+        genericMatrix[i] = i +1;
     }
-    return A;
-}
-*/
-int* fillMatrix(size_t size){
-    int counter = 0;
-    int* matrix[size];
-    for (int i = 0; i < size; i++) {
-        matrix[i] = (int*) malloc(size * sizeof(int));
-    }
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size ; j++) {
-            matrix[i][j] = ++counter;
-        }
-    }
-    return matrix;
+    return genericMatrix;
 }
 
-int printMatrix(int** matrix, size_t size){
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++){
-            if(j < size - 1){
-                if(matrix[i][j] < 10){printf("0%d\t", matrix[i][j]);}
-                else{printf("%d\t", matrix[i][j]);}
-            }else{
-                if(matrix[i][j] < 10){printf("0%d\n", matrix[i][j]);}
-                else{printf("%d\n", matrix[i][j]);}
-            }
+int printMatrix(int* matrix, size_t i, size_t j){
+    size_t totalSize = i * j;
+    int index = 0;
+    int limit = i;
+    while(index < totalSize) {
+        if (index < limit) {
+            if (matrix[index] < 10) { printf("00%d\t\t", matrix[index++]); }
+            else if (matrix[index] < 100) { printf("0%d\t\t", matrix[index++]); }
+            else { printf("%d\t\t", matrix[index++]); }
+        }else{
+            printf("\n");
+            limit += i;
         }
     }
     return 0;
 }
+
+
+int* multiply(int* A, int* B, int n){
+    size_t totalSize = n * n;
+    int* R = (int*) malloc(totalSize * sizeof(int));
+    int indexA,
+          indexB,
+          indexR = 0,
+          indexALimit = n,
+          indexBStart = 0;
+    while(indexR < totalSize){
+        while(indexB < totalSize){
+            while(indexA < indexALimit){
+                R[indexR] += A[indexA] * B[indexB];
+                indexA++;
+                indexB += n;
+            }
+            indexA = indexALimit - n;
+            indexB = ++indexBStart;
+            indexR++;
+        }
+        indexALimit += n;
+        indexA += n;
+        indexB = 0;
+        indexBStart = 0;
+    }
+    return R;
+}
+
 
 int checkIfPalindrome(char* string){
     for (int i = 0, reverseCounter = sizeof(string); i < sizeof(string); i++) {
@@ -112,22 +128,31 @@ int testToBinaryString(){
 }
 
 int testFillMatrix() {
-size_t size = 4;
+    size_t rows = 10;
+    size_t columns = 10;
 /*
-    printf("Enter matrix' size\n");
-    scanf("%zd", &size);
-    */
-    int* genericMatrix = fillMatrix(size);
-    printMatrix(genericMatrix, size);
+    printf("Enter no of rows\n");
+    scanf("%zd", &rows);
+    printf("Enter no of columns\n");
+    scanf("%zd", &columns);
+*/
+    int* genericMatrix = fillMatrix(rows, columns);
+    printMatrix(genericMatrix, rows, columns);
+    free(genericMatrix);
 }
-/*
-int testMatrix(){
-    int* matrix[3];
-    fillMatrix(matrix);
-    printMatrix(matrix, size);
+
+
+int testMultiply(){
+    size_t size = 3;
+
+    int* matrixA = fillMatrix(size, size);
+    int* matrixB = fillMatrix(size, size);
+    int* result = multiply(matrixA, matrixB, size);
+    printMatrix(result, size, size);
     return 0;
 }
-*/
+
+
 int testPalindrome(){
     size_t length;
     char character;
@@ -143,12 +168,11 @@ int testPalindrome(){
     return 0;
 }
 
-
 int main(){
     //testCreateArray();
     //testToBinaryString();
-    testFillMatrix();
-    //testMatrix();
+    //testFillMatrix();
+    testMultiply();
    // testPalindrome();
 }
 
