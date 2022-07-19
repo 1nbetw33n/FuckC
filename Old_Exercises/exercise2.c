@@ -75,7 +75,7 @@ int main(int argc, char* argv[]){
     printf("%.2f | %.2f\n", a, b);
     printf("%E | %E\n", a, b);
     printQuadraticEquation();
-    op(7.f);
+    ex2_op(7.f);
     Rational fraction1;
     Rational fraction2;
     Rational fraction3;
