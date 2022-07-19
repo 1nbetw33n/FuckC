@@ -26,7 +26,7 @@ char* toBinaryString(int no){
     int zeroCounter = 0;
     //DECIMAL -> BINARY (LEAST SIGNIFICANT BIT STORED AT LAST INDEX ETC.)
     for (int i = LENGTH - 1; i > 0; i--) {
-        if(!(no > 0)){
+        if(no <= 0){
             //COUNTS LEADING ZEROS
             zeroCounter = i + 1;
             break;
@@ -168,12 +168,14 @@ int testPalindrome(){
     return 0;
 }
 
-int main(){
+/*int main(){
     //testCreateArray();
     //testToBinaryString();
     //testFillMatrix();
     testMultiply();
    // testPalindrome();
 }
+   */
+
 
 

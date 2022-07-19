@@ -1,4 +1,4 @@
-/snap/clion/193/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/193/bin/ninja/linux/ninja -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_C_FLAGS=--coverage -G Ninja -S /home/bella/CLionProjects/FuckC -B /home/bella/CLionProjects/FuckC/cmake-build-debug-coverage
+/snap/clion/198/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/198/bin/ninja/linux/ninja -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_C_FLAGS=--coverage -G Ninja -S /home/bella/CLionProjects/FuckC -B /home/bella/CLionProjects/FuckC/cmake-build-debug-coverage
 -- The C compiler identification is GNU 11.2.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
