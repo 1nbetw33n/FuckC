@@ -15,6 +15,9 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+#include "ex2.h"
+#include "ex1.h"
 
 //print sizeof char, int, float, double
 void ex2_print_sizeof() {
@@ -58,15 +61,65 @@ void ex2_solve_quadratic_equation(){
     }
 }
 
+Fraction ex2_add_fractions(Fraction a, Fraction b){
+    Fraction result;
+    result.numerator = a.numerator * b.denominator + a.denominator * b.numerator;
+    result.denominator = a.denominator * b.denominator;
+    return result;
+}
 
+Fraction ex2_shorten_fraction(Fraction a){
+    int gcd = ex1_gcd2(a.numerator, a.denominator);
+    a.numerator /= gcd;
+    a.denominator /= gcd;
+    return a;
+}
+
+int compare_floats(float a, float b){
+    return fabsf(a - b) <= 0.000001;
+}
 
 void ex2_test_solve_quadratic_equation() {
     ex2_solve_quadratic_equation();
 }
 
+void ex2_test_add_fractions() {
+    Fraction a, b;
+    printf("Enter a, b: \n");
+    scanf("%d\n %d\n", &a.numerator, &a.denominator);
+    scanf("%d\n %d\n", &b.numerator, &b.denominator);
+    Fraction result = ex2_add_fractions(a, b);
+    printf("%d/%d + %d/%d = %d/%d\n", a.numerator, a.denominator, b.numerator, b.denominator, result.numerator, result.denominator);
+}
+
+void ex2_test_shorten_fraction() {
+    Fraction a;
+    printf("Enter a: \n");
+    scanf("%d\n %d\n", &a.numerator, &a.denominator);
+    Fraction result = ex2_shorten_fraction(a);
+    printf("shorten(%d/%d) -> %d/%d\n", a.numerator, a.denominator, result.numerator, result.denominator);
+}
+
+void ex2_test_compare_floats() {
+    float a = .1f +.1f +.1f +.1f +.1f +.1f +.1f +.1f +.1f +.1f;
+    float b = 10 * .1f;
+    if(compare_floats(a, b)){
+        printf("%.10f == %.10f\n", a, b);
+    }
+    else{
+        printf("%.10f != %.10f\n", a, b);
+    }
+}
+
+
 void ex2_main(void) {
-    ex2_print_sizeof();
-    ex2_print_numbers(125, -39);
-    ex2_op(73.3f);
-    ex2_test_solve_quadratic_equation();
+//    ex2_print_sizeof();
+//    ex2_print_numbers(125, -39);
+//    ex2_op(73.3f);
+//    ex2_test_solve_quadratic_equation();
+//    ex2_test_add_fractions();
+//    ex2_test_shorten_fraction();
+//    ex2_test_compare_floats();
+
+    printf("All tests passed! *happy dev noises* \n");
 }

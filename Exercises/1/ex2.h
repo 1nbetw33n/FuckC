@@ -16,6 +16,11 @@
 #ifndef PROGC_EX2_H
 #define PROGC_EX2_H
 
+typedef  struct Fraction{
+    int numerator;
+    int denominator;
+}Fraction;
+
 void ex2_main(void);
 
 #endif //PROGC_EX2_H

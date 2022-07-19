@@ -16,6 +16,7 @@
 #ifndef PROGC_EX1_H
 #define PROGC_EX1_H
 
+int ex1_gcd2(int no1, int no2);
 void ex1_main(void);
 
 #endif //PROGC_EX1_H
