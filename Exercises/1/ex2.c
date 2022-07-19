@@ -48,9 +48,16 @@ void ex2_solve_quadratic_equation(){
     int a, b, c;
     printf("Enter a, b, c: \n");
     scanf("%d\n %d\n %d\n", &a, &b, &c);
-    printf("%dx² + %dx + %d = 0", a, b, c);
-    //code here for solving quadratic equation
+    printf("%dx² + %dx + %d = 0\n", a, b, c);
+    double root = sqrt(b * b - 4 * a * c);
+    if(root < 0){
+        printf("No real roots.\n");
+    }
+    else{
+        printf("x = %.2f\tv \tx = %.2f\n", (-b + root) / (2 * a), (-b - root) / (2 * a));
+    }
 }
+
 
 
 void ex2_test_solve_quadratic_equation() {
